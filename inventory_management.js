@@ -1,5 +1,5 @@
-// Coding Challenge 4 - Inventory System Management
-// Task 1 - Create an inventory array of product objects
+// Coding Challenge 4: Inventory System Management
+// Task 1: Create an inventory array of product objects
 let inventory = [
     {name: 'Laptop', price: 1000, quantity: 10, lowStockLevel: 2 },
     {name: 'Smartphone', price: 750, quantity: 20, lowStockLevel: 5 },
@@ -10,3 +10,11 @@ let inventory = [
 
 // console.log(inventory)
 
+// Task 2: Create a function to display product details
+function displayProductDetails(product) {
+    let stockStatus = product.quantity > product.lowStockLevel ? "In Stock" : "Low Stock";
+    console.log(`Product: ${product.name}`);
+    console.log(`Price: $${product.price}`);
+    console.log(`Quantity in Stock: ${product.quantity}`);
+    console.log(`Stock Status: ${stockStatus}`);
+}
