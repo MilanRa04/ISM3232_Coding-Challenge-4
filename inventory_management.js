@@ -19,11 +19,13 @@ function displayProductDetails(product) {
     console.log(`Stock Status: ${stockStatus}`);
 }
 
+displayProductDetails(inventory[0])
+
 // Task 3: Create a function to update product stock after sales
 function updateStock(product, unitsSold) {
     if (product.quantity >= unitsSold) {
         product.quantity -= unitsSold;
-        console.log(`${unitsSold} units of ${product.name} sold. Updates quantity: ${product.quantity}`);
+        console.log(`${unitsSold} units of ${product.name} sold. Updated quantity: ${product.quantity}`);
 
         if (product.quantity === 0) {
             console.log(`${product.name} is now Out of Stock.`);
@@ -35,6 +37,8 @@ function updateStock(product, unitsSold) {
     }
 }
 
+updateStock(inventory[0], 2)
+
 // Task 4: Create a Function to Check Low Stock Products
 function checkLowStock() {
     console.log('Low Stock Products:');
@@ -42,16 +46,21 @@ function checkLowStock() {
         if (product.quantity <= product.lowStockLevel) {
             console.log(product.name)
         }
+        else console.log('No products are low on stock')
     });
 }
 
+checkLowStock(inventory)
+
 // Task 5: Create a Function to Calculate Total Inventory Value
-function calculateInventoryValue() {
+function calculateInventoryValue(inventory) {
     const totalValue = inventory.reduce((total, product) =>{
         return total + (product.price * product.quantity);
     }, 0);
     return totalValue;
 }
+
+console.log(`Total inventory value is $${calculateInventoryValue(inventory)}`)
 
 // Task 6: Create a Function to Process a Sale
 function processSale(productName, unitsSold) {
@@ -63,3 +72,5 @@ function processSale(productName, unitsSold) {
         console.log(`Product ${productName} is not in the inventory.`);
     }
 }
+
+processSale('Laptop', 2)
