@@ -1,11 +1,11 @@
 // Coding Challenge 4: Inventory System Management
 // Task 1: Create an inventory array of product objects
-let inventory = [
-    {name: 'Laptop', price: 1000, quantity: 10, lowStockLevel: 2 },
-    {name: 'Smartphone', price: 750, quantity: 20, lowStockLevel: 5 },
-    {name: 'Tablet', price: 600, quantity: 15, lowStockLevel: 4 },
-    {name: 'Smartwatch', price: 150, quantity: 10, lowStockLevel: 2 },
-    {name: 'Headphones', price: 50, quantity: 30, lowStockLevel: 7 }
+const inventory = [
+    {name: 'Laptop', price: 1200, quantity: 10, lowStockLevel: 3 },
+    {name: 'Smartphone', price: 800, quantity: 5, lowStockLevel: 2 },
+    {name: 'Tablet', price: 400, quantity: 7, lowStockLevel: 1 },
+    {name: 'Headphones', price: 100, quantity: 15, lowStockLevel: 5 },
+    {name: 'Smartwatch', price: 250, quantity: 3, lowStockLevel: 1 }
 ];
 
 // console.log(inventory)
@@ -43,4 +43,12 @@ function checkLowStock() {
             console.log(product.name)
         }
     });
+}
+
+// Task 5: Create a Function to Calculate Total Inventory Value
+function calculateInventory() {
+    const totalValue = inventory.reduce((total, product) =>{
+        return total + (product.price * product.quantity);
+    }, 0);
+    return totalValue;
 }
